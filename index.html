@@ -3,35 +3,14 @@
 
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>tree town tango</title>
 
 <body>
-  <img id="katiepic" src="./assets/katie_aline.jpg" alt="katie and aline">
-  <h1 id="main-question">
-    <strong>
-      what is<br>
-      tango?
-    </strong>
-  </h1>
-  <p id="main-answer">
-    a dance where leader and follower<br>
-    move in unison to music while<br>
-    maintaining a cozy embrace<br>
-    <br>
-    or<br>
-    hugging to songs
-  </p>
-  <div id="initial-buttons-container">
-    <div>
-      <a href="./pages/what_is_tango.html">
-        <button class="initial-buttons" type="button">&#x2192; show me</button>
-      </a>
-    </div>
-    <div>
-      <a href="./pages/what_is_tango.html">
-        <button class="initial-buttons" type="button">&#x2192; where to dance</button>
-      </a>
-    </div>
+  <div class="social-media-icons">
+    <a href="#"><i class="fa fa-instagram" id="instagram-icon"></i></a>
+    <a href="#" class="fa fa-facebook" id="facebook-icon"></a>
+    <a href="#" class="fa fa-youtube-play" id="youtube-icon"></a>
   </div>
 </body>
 </head>
@@ -40,57 +19,46 @@
 
 <style>
   body {
-    background-color: #f3f3f3;
+    height: 100vh;
+    background-image: url("./assets/katie_aline.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     font-family: 'Courier New', Courier, monospace;
   }
 
-  #katiepic {
-    width: 100%;
-    height: auto;
-    border: solid;
-    border-color: black;
-    border-width: 8px;
-  }
-
-  #main-question {
-    color: #36454F;
-    text-align: left;
-    font-size: 45px;
-    margin-top: 60px;
-    margin-bottom: 0px;
-    margin-left: 70px;
-  }
-
-  #main-answer {
-    text-align: left;
-    font-size: 29px;
-    margin-top: 15px;
-    margin-bottom: 0px;
-    margin-left: 100px;
-  }
-
-  #initial-buttons-container {
+  /* div which contains social media icons/links */
+  .social-media-icons {
+    height: 100vh;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 75%;
-    text-align: left;
-    margin-top: 200px;
-    margin-bottom: 0px;
-    margin-left: 100px;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    background: rgba(255, 255, 255, 0.3);
   }
 
-  .initial-buttons {
-    background-color: rgba(0, 0, 0, 0);
-    border: solid;
-    border-width: 6px;
-    border-color: #36454F;
-    border-radius: 40px;
-    color: 36454F;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 15px 40px;
+  /* Style  all font awesome icons i.e. insta/fb/youtube */
+  .fa {
+    padding: 20px;
+    margin-bottom: 400px;
+    font-size: 6vh;
     text-align: center;
-    display: inline-block;
-    font-size: 30px;
+    text-decoration: none;
+    border-radius: 50%;
+  }
+
+  #instagram-icon {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    /* Also define standard property for compatibility */
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  #youtube-icon {
+    color: crimson;
+  }
+
+  #facebook-icon {
+    color: rgb(59, 89, 152);
   }
 </style>
