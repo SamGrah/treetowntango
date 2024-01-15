@@ -7,10 +7,10 @@
   <title>Learn Tango</title>
 
 <body>
-  <div class="nav-page">
+  <div id="nav-page">
     <div class="navbar">
       <p class="nav-text">Learn Tango</p>
-      <i class="fa fa-bars" id="menu-icon"></i>
+      <i class="fa fa-bars" id="menu-icon" onclick="openNav()"></i>
     </div>
     <div class="content">
       <div class="social-media-icons">
@@ -21,6 +21,13 @@
       </div>
     </div>
   </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Classes</a>
+    <a href="#">Events</a>
+    <a href="#">Contact</a>
+  </div>
 </body>
 </head>
 
@@ -28,13 +35,15 @@
 
 <style>
   body {
-    height: 100vh;
     padding: 0px;
     margin: 0px;
+    transition: 0.5s;
     font-family: 'Courier New', Courier, monospace;
   }
 
-  .nav-page {
+  #nav-page {
+    height: 100vh;
+    transition: margin-left .5s;
     background-image: url("./assets/katie_aline.jpg");
     background-repeat: no-repeat;
     background-position: center;
@@ -58,6 +67,49 @@
     font-size: 6.5cqmin;
     font-weight: 600;
   }
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+{
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
 
   .content {
     height: 97vh;
@@ -115,10 +167,14 @@
 
 <script>
   function openNav() {
-    document.getElementById("myNav").style.width = "100%";
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("nav-page").style.marginLeft = "250px";
+    document.body.style.backgroundColor = "rgba(0,0,0,1)";
   }
 
   function closeNav() {
-    document.getElementById("myNav").style.width = "0%";
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("nav-page").style.marginLeft = "0";
+    document.body.style.backgroundColor = "white";
   }
 </script>
