@@ -10,9 +10,15 @@
   <div id="nav-page">
     <div class="navbar">
       <p class="nav-text">Learn Tango</p>
-      <i class="fa fa-bars" id="menu-icon" onclick="openNav()"></i>
+      <i class="fa fa-bars" id="menu-icon" onclick="toggleNav()"></i>
     </div>
-    <div class="content">
+    <div id="nav-submenu" class="nav-submenu">
+      <a href="#" class="sub-menu-item">About</a>
+      <a href="#" class="sub-menu-item">Classes</a>
+      <a href="#" class="sub-menu-item">Events</a>
+      <a href="#" class="sub-menu-item">Contact</a>
+    </div>
+    <div id="content">
       <div class="social-media-icons">
         <a href="https://www.instagram.com/tangodelfenix/"><i class="fa fa-instagram" id="instagram-icon"></i></a>
         <a href="https://www.facebook.com/groups/fenixpractica/?mibextid=oMANbw" class="fa fa-facebook"
@@ -20,13 +26,6 @@
         <a href="https://www.youtube.com/@annarbortango" class="fa fa-youtube-play" id="youtube-icon"></a>
       </div>
     </div>
-  </div>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Classes</a>
-    <a href="#">Events</a>
-    <a href="#">Contact</a>
   </div>
 </body>
 </head>
@@ -42,9 +41,12 @@
   }
 
   #nav-page {
+    --nav-color: rgba(255, 255, 255, 0.5);
+
     height: 100vh;
-    transition: margin-left .5s;
-    background-image: url("./assets/katie_aline.jpg");
+    transition: margin-right .5s;
+    background: url("./assets/katie_aline.jpg"), rgba(255, 255, 255, 0.2);
+    background-blend-mode: hard-light;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -53,12 +55,38 @@
 
   .navbar {
     height: 7vmax;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: var(--nav-color);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
+  }
+
+  .nav-submenu {
+    height: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+    font-size: 6cqmin;
+    background-color: var(--nav-color);
+  }
+
+  .nav-submenu-opened {
+    height: calc(4 * 11cqmin);
+  }
+
+  .sub-menu-item {
+    padding: 2cqmin;
+    padding-left: 11cqmin;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.55);
+    font-weight: 600;
+    text-align: left;
   }
 
   .nav-text {
@@ -68,51 +96,9 @@
     font-weight: 600;
   }
 
-.sidenav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-{
-  padding: 16px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
-  .content {
+  #content {
     height: 97vh;
+    transition: .5s;
   }
 
   /* div which contains social media icons/links */
@@ -121,7 +107,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: flex-end;
-    background: rgba(255, 255, 255, 0.3);
   }
 
   /* Style  all font awesome icons i.e. insta/fb/youtube */
@@ -138,13 +123,12 @@
   #instagram-icon,
   #facebook-icon,
   #youtube-icon {
-    font-size: 6vh;
-    margin-bottom: 400px;
-    opacity: 0.9;
+    font-size: 12cqmin;
+    margin-bottom: 50cqmin;
   }
 
   #menu-icon {
-    font-size: 6cqmin;
+    font-size: 8cqmin;
     color: rgba(0, 0, 0, 0.6);
   }
 
@@ -166,15 +150,14 @@
 </style>
 
 <script>
-  function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("nav-page").style.marginLeft = "250px";
-    document.body.style.backgroundColor = "rgba(0,0,0,1)";
-  }
+  let subMenuOpen = false;
+  const r = document.querySelector(':root')
 
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("nav-page").style.marginLeft = "0";
-    document.body.style.backgroundColor = "white";
+  function toggleNav() {
+    contentOpacity = subMenuOpen ? "100%" : "0%";
+    subMenuOpen = !subMenuOpen;
+
+    document.getElementById("nav-submenu").classList.toggle("nav-submenu-opened");
+    document.getElementById("content").style.opacity = contentOpacity;
   }
 </script>
