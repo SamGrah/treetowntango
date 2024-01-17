@@ -18,9 +18,9 @@
       <a href="#" class="sub-menu-item">Events</a>
       <a href="#" class="sub-menu-item">Contact</a>
     </div>
-    <div id="content">
+    <div id="content" class="container">
       <div class="social-media-icons">
-        <a href="https://www.instagram.com/tangodelfenix/"><i class="fa fa-instagram" id="instagram-icon"></i></a>
+        <a href="https://www.instagram.com/tangodelfenix/" class="fa fa-instagram" id="instagram-icon"></a>
         <a href="https://www.facebook.com/groups/fenixpractica/?mibextid=oMANbw" class="fa fa-facebook"
           id="facebook-icon"></a>
         <a href="https://www.youtube.com/@annarbortango" class="fa fa-youtube-play" id="youtube-icon"></a>
@@ -33,6 +33,10 @@
 </html>
 
 <style>
+  .container {
+    container-type: inline-size;
+  }
+
   body {
     padding: 0px;
     margin: 0px;
@@ -54,8 +58,8 @@
   }
 
   .navbar {
-    height: 7vmax;
-    background-color: var(--nav-color);
+    height: 8vmax;
+    background: linear-gradient(to bottom, var(--nav-color) 93%, rgba(255, 255, 255, 0));
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -64,6 +68,7 @@
   }
 
   .nav-submenu {
+    background-color: var(--nav-color);
     height: 0;
     left: 0;
     right: 0;
@@ -73,7 +78,6 @@
     flex-direction: column;
     row-gap: 0px;
     font-size: 6cqmin;
-    background-color: var(--nav-color);
   }
 
   .nav-submenu-opened {
@@ -92,6 +96,7 @@
   .nav-text {
     color: rgba(255, 255, 255, 0.4);
     text-align: center;
+    text-shadow: black 0px 0px 40px;
     font-size: 6.5cqmin;
     font-weight: 600;
   }
