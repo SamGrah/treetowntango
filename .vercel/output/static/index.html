@@ -61,18 +61,20 @@
   .navbar {
     height: 8vmax;
     background: linear-gradient(to bottom, var(--nav-color) 93%, rgba(255, 255, 255, 0));
+    container-type: inline-size;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-left: 30px;
     padding-right: 30px;
+    transition: 0.5s;
   }
 
   .nav-text {
     color: rgba(255, 255, 255, 0.4);
     text-align: center;
     text-shadow: black 0px 0px 40px;
-    font-size: 7cqmin;
+    font-size: 7.5cqw;
     font-weight: 600;
   }
 
@@ -90,12 +92,13 @@
   }
 
   .nav-submenu-opened {
-    height: calc(4 * 11cqmin);
+    height: calc(4 * 12cqmin);
+    padding-top: 2cqmin;
     padding-bottom: 2cqmin;
   }
 
   .sub-menu-item {
-    padding: 2cqmin;
+    padding: 2.25cqmin;
     padding-left: 11cqmin;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.55);
@@ -105,10 +108,10 @@
   }
 
   /* top border only applied to sub-menu-items bordering each other */
-  .sub-menu-item + .sub-menu-item {
+  .sub-menu-item+.sub-menu-item {
     border-top: 1px solid transparent;
     border-image:
-      linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0)) 10% 0 0 0; 
+      linear-gradient(to right, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0)) 10% 0 0 0;
   }
 
   #content {
