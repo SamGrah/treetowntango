@@ -47,6 +47,7 @@
   #nav-page {
     --nav-color: rgba(255, 255, 255, 0.5);
 
+
     height: 100vh;
     transition: margin-right .5s;
     background: url("./assets/katie_aline.jpg"), rgba(255, 255, 255, 0.2);
@@ -67,8 +68,16 @@
     padding-right: 30px;
   }
 
+  .nav-text {
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+    text-shadow: black 0px 0px 40px;
+    font-size: 7cqmin;
+    font-weight: 600;
+  }
+
   .nav-submenu {
-    background-color: var(--nav-color);
+    background: linear-gradient(to bottom, var(--nav-color) 98%, rgba(255, 255, 255, 0));
     height: 0;
     left: 0;
     right: 0;
@@ -77,11 +86,12 @@
     display: flex;
     flex-direction: column;
     row-gap: 0px;
-    font-size: 6cqmin;
+    font-size: 4.5cqmin;
   }
 
   .nav-submenu-opened {
     height: calc(4 * 11cqmin);
+    padding-bottom: 2cqmin;
   }
 
   .sub-menu-item {
@@ -89,16 +99,16 @@
     padding-left: 11cqmin;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.55);
-    font-weight: 600;
+    font-size: 6cqmin;
+    font-weight: bold;
     text-align: left;
   }
 
-  .nav-text {
-    color: rgba(255, 255, 255, 0.4);
-    text-align: center;
-    text-shadow: black 0px 0px 40px;
-    font-size: 6.5cqmin;
-    font-weight: 600;
+  /* top border only applied to sub-menu-items bordering each other */
+  .sub-menu-item + .sub-menu-item {
+    border-top: 1px solid transparent;
+    border-image:
+      linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0)) 10% 0 0 0; 
   }
 
   #content {
