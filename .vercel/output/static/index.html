@@ -8,9 +8,9 @@
 
 <body>
   <div id="nav-page">
-    <div class="navbar">
+    <div class="navbar" onclick="toggleNav()">
       <p class="nav-text">Learn Tango</p>
-      <i class="fa fa-bars" id="menu-icon" onclick="toggleNav()"></i>
+      <i class="fa fa-bars" id="menu-icon"></i>
     </div>
     <div id="nav-submenu" class="nav-submenu">
       <a href="#" class="sub-menu-item">About</a>
@@ -42,6 +42,7 @@
     margin: 0px;
     transition: 0.5s;
     font-family: 'Courier New', Courier, monospace;
+    -webkit-tap-highlight-color: transparent;
   }
 
   #nav-page {
