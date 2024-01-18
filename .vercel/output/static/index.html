@@ -4,11 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https:////cdnjs.cloudflare.com/ajax/libs/velocity/1.2.2/velocity.min.js"></script>
   <title>Learn Tango</title>
 
 <body>
-  <div id="nav-page">
-    <div class="navbar" onclick="toggleNav()">
+  <div id="nav-page" class="container">
+    <div class="navbar" id="navbar" onclick="toggleNav()">
       <p class="nav-text">Learn Tango</p>
       <i class="fa fa-bars" id="menu-icon"></i>
     </div>
@@ -18,14 +20,13 @@
       <a href="#" class="sub-menu-item">Events</a>
       <a href="#" class="sub-menu-item">Contact</a>
     </div>
-    <div id="content" class="container">
-      <div class="social-media-icons">
-        <a href="https://www.instagram.com/tangodelfenix/" class="fa fa-instagram" id="instagram-icon"></a>
-        <a href="https://www.facebook.com/groups/fenixpractica/?mibextid=oMANbw" class="fa fa-facebook"
-          id="facebook-icon"></a>
-        <a href="https://www.youtube.com/@annarbortango" class="fa fa-youtube-play" id="youtube-icon"></a>
-      </div>
-    </div>
+    <div id="content" class="container"></div>
+    <footer class="container">
+      <a href="https://www.instagram.com/tangodelfenix/" class="fa fa-instagram" id="instagram-icon"></a>
+      <a href="https://www.facebook.com/groups/fenixpractica/?mibextid=oMANbw" class="fa fa-facebook"
+        id="facebook-icon"></a>
+      <a href="https://www.youtube.com/@annarbortango" class="fa fa-youtube-play" id="youtube-icon"></a>
+    </footer>
   </div>
 </body>
 </head>
@@ -48,7 +49,6 @@
   #nav-page {
     --nav-color: rgba(255, 255, 255, 0.5);
 
-
     height: 100vh;
     transition: margin-right .5s;
     background: url("./assets/katie_aline.jpg"), rgba(255, 255, 255, 0.2);
@@ -59,9 +59,23 @@
     container-type: inline-size;
   }
 
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 70%;
+    height: 8cqh;
+    margin-left: 15%;
+    margin-right: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 9cqmin;
+  }
+
   .navbar {
-    height: 8vmax;
-    background: linear-gradient(to bottom, var(--nav-color) 93%, rgba(255, 255, 255, 0));
+    height: 8cqh;
+    background: var(--nav-color);
     container-type: inline-size;
     display: flex;
     justify-content: space-between;
@@ -75,7 +89,7 @@
     color: rgba(255, 255, 255, 0.4);
     text-align: center;
     text-shadow: black 0px 0px 40px;
-    font-size: 7.5cqw;
+    font-size: 7.5cqmin;
     font-weight: 600;
   }
 
@@ -116,16 +130,8 @@
   }
 
   #content {
-    height: 97vh;
+    height: 84cqh;
     transition: .5s;
-  }
-
-  /* div which contains social media icons/links */
-  .social-media-icons {
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: flex-end;
   }
 
   /* Style  all font awesome icons i.e. insta/fb/youtube */
@@ -142,13 +148,13 @@
   #instagram-icon,
   #facebook-icon,
   #youtube-icon {
-    font-size: 12cqmin;
-    margin-bottom: 35cqh;
+    font-size: 15cqmin;
   }
 
   #menu-icon {
     font-size: 8cqmin;
     color: rgba(0, 0, 0, 0.6);
+    transition: 0.5s ease-in-out;
   }
 
   #instagram-icon {
@@ -173,9 +179,11 @@
   const r = document.querySelector(':root')
 
   function toggleNav() {
-    contentOpacity = subMenuOpen ? "100%" : "0%";
+    const contentOpacity = subMenuOpen ? "100%" : "0%";
     subMenuOpen = !subMenuOpen;
 
+    document.getElementById("menu-icon").style.rotate = subMenuOpen ? "90deg" : "0deg";
+    document.getElementById("menu-icon").style.color = subMenuOpen ? "rgba(0,0,0,0.25)" : "rgba(0,0,0,0.55)";
     document.getElementById("nav-submenu").classList.toggle("nav-submenu-opened");
     document.getElementById("content").style.opacity = contentOpacity;
   }
